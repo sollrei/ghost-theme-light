@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>{{meta_title}}</title>
+    <meta name="description" content="{{meta_description}}" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="{{asset "favicon.ico"}}">
+
+    <link rel="stylesheet" type="text/css" href="{{asset "css/screen.css"}}" />
+
+    {{! Ghost outputs important style and meta data with this tag }}
+    {{ghost_head}}
+    <!--[if lt IE 9]>
+    <script src="/assets/html5shiv.js" type="text/javascript"></script>
+    <![endif]-->
+</head>
+<body class="{{body_class}} {{#is 'index, tag, author'}}user{{/is}} {{#is 'post'}}{{#unless post.image}}noimage{{/unless}}{{/is}}">
+
+    {{! Everything else gets inserted here }}
+    <div class="layout clearfix">
+        <aside class="m-aside">
+
+            <div class="aside-wrap">
+                <header class="blog-header">
+                    <img src="{{@blog.logo}}" alt=""/>
+                    <h1 class="blog-title"><a href="/">
+                        <span>S</span><span>u</span><span>m</span><span>m</span><span>e</span><span>r</span>
+                        <span>F</span><span>l</span><span>o</span><span>w</span><span>e</span><span>r</span>
+                    </a></h1>
+                    <p class="blog-desc">
+                        {{@blog.description}}
+                    </p>
+                </header>
+
+                <h4 class="side-hd">
+                    <span class="inner">menu</span>
+                </h4>
+                {{navigation}}
+
+                <h4 class="side-hd">
+                    <span class="inner">tags</span>
+                </h4>
+                {{tag_cloud limit="all"}}
+
+                <h4 class="side-hd">
+                    <span class="inner">links</span>
+                </h4>
+                <ul>
+                    <li><a href="http://www.pixiv.net/" target="_blank">PIXIV</a></li>
+                    <li><a href="http://www.bilibili.tv/" target="_blank">Bilibili</a></li>
+                    <li><a href="https://unsplash.com/" title="一个很棒的免费图片站" target="_blank">Unsplash</a></li>
+                </ul>
+
+                <div class="copyright">
+                    <p class="copy">
+                        &copy; Theme by <a target="_blank" href="http://weibo.com/sollrei">NINE</a>
+                        <br/>Powered by <a target="_blank" href="https://ghost.org">Ghost</a>.
+                    </p>
+                </div>
+            </div>
+
+        </aside>
+        <section class="m-main">
+            {{{body}}}
+        </section>
+    </div>
+    <div class="l-bg"></div>
+    <script type="text/javascript" src="/assets/jquery.min.js"></script>
+    <script src="/assets/jquery.scrollNav.js"></script>
+    <script src="{{asset "js/main.js"}}"></script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+{{! This is the post loop - each post will be output using this markup }}
+<div class="post-loop">
+    {{#foreach posts}}
+
+    {{!-- Add a `featured` class to the first post on each page, if it has an image and isn't already featured --}}
+        <article class="{{post_class}} {{#if @first}}{{#if image}}{{#unless featured}}featured{{/unless}}{{/if}}{{/if}}">
+
+            <div class="meta">
+                <!--<div class="post-author">
+                    <a href="">
+                        <img class="post-author-avatar" src="{{author.image}}" alt=""/>
+                    </a>
+                </div>-->
+                <time class="post-date" datetime="{{date format='YYYY-MM-DD'}}">
+                    <span class="post-date-day">{{date format="DD"}}</span>
+                    <span class="post-date-month">{{date format="MM"}}</span>
+                    <span class="post-date-year">{{date format="YYYY"}}</span>
+                </time>
+
+            </div>
+
+            <header>
+                <h1 class="post-header"><a href="{{url}}">{{title}}</a></h1>
+            </header>
+
+            {{#if tags}}
+            <p class="post-tags">
+                <i class="icon icon-tag"></i>{{#tags}}{{/tags}}
+            </p>
+            {{/if}}
+
+            {{#if image}}
+                <div class="image-holder">
+                    <a href="{{url}}" class="inner">
+                        <img src="{{image}}">
+                    </a>
+                </div>
+            {{/if}}
+
+            <div class="post-text">
+                <p>{{excerpt characters="400"}}</p>
+                <a href="{{url}}" class="read-more">Read More &rarr;</a>
+            </div>
+        </article>
+    {{/foreach}}
+</div>
+
+{{pagination}}

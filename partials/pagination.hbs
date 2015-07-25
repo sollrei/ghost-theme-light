@@ -1,0 +1,15 @@
+<div class="loop-page">
+    {{#if next}}
+        <a href="{{page_url next}}" class="btn nav next">
+            <span aria-hidden="true" data-icon=">"></span>
+            下一页 &rarr;
+        </a>
+    {{/if}}
+    {{#if prev}}
+        <a href="{{page_url prev}}" class="btn nav prev">
+            <span aria-hidden="true" data-icon=">"></span>
+            &larr; 上一页
+        </a>
+    {{/if}}
+
+</div>

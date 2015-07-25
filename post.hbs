@@ -1,0 +1,96 @@
+{{!< default}}
+
+{{#post}}
+
+    <article role="main" class="post post__article">
+
+        <div class="meta">
+            <time class="post-date" datetime="{{date format='YYYY-MM-DD'}}">
+                <span class="post-date-day">{{date format="DD"}}</span>
+                <span class="post-date-month">{{date format="MM"}}</span>
+                <span class="post-date-year">{{date format="YYYY"}}</span>
+            </time>
+
+        </div>
+
+        <header>
+            <a href="/" class="home-link">« HOME</a>
+            <h1>{{title}}</h1>
+        </header>
+
+        {{#if image}}
+            <div class="image-holder">
+                <img src="{{image}}">
+            </div>
+        {{/if}}
+
+        <div class="post-text">
+            {{content}}
+        </div>
+
+    {{#author}}
+        <footer class="post-footer" role="contentinfo">
+
+            <div class="vcard">
+
+                {{#if image}}
+                <a href="{{url}}" class="fl">
+                    <img class="photo" height="80" width="80" src="{{image}}" alt="{{name}}">
+                </a>
+                {{/if}}
+
+                <div class="details">
+                    <h4><a href="{{url}}" class="url n">{{name}}</a></h4>
+                    {{#if location}}{{location}}<br>{{/if}}
+                    {{#if website}}<a href="{{website}}" class="js-remove-domain-schema">{{website}}</a>{{/if}}
+                </div>
+            </div>
+
+        </footer>
+    {{/author}}
+
+    </article>
+
+    <div class="post-nav clearfix">
+        <nav role="navigation">
+            {{#if previous}}
+                <div class="post-nav-next">后一篇 &rarr;
+                    <br/>
+                    <a href="{{previous.url}}" class="post-prev" title="Previous Post">
+                        {{previous.title}}
+                    </a>
+                </div>
+            {{/if}}
+
+            {{#if next}}
+                <div class="post-nav-prev">&larr; 前一篇
+                    <br/>
+                    <a href="{{next.url}}" class="post-next" title="Next Post">
+                        {{next.title}}
+                    </a>
+                </div>
+
+            {{/if}}
+        </nav>
+    </div>
+
+    
+
+
+    <div class="post-comment">
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'nanokya'; // required: replace example with your forum shortname
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+{{/post}}
