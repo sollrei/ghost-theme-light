@@ -23,15 +23,14 @@
 <body class="{{body_class}} {{#is 'index, tag, author'}}user{{/is}} {{#is 'post'}}{{#unless post.image}}noimage{{/unless}}{{/is}}">
 
     {{! Everything else gets inserted here }}
-    <div class="layout clearfix">
+    <div class="layout clearfix container">
         <aside class="m-aside">
 
             <div class="aside-wrap">
                 <header class="blog-header">
                     <img src="{{@blog.logo}}" alt=""/>
                     <h1 class="blog-title"><a href="/">
-                        <span>S</span><span>u</span><span>m</span><span>m</span><span>e</span><span>r</span>
-                        <span>F</span><span>l</span><span>o</span><span>w</span><span>e</span><span>r</span>
+                        {{@blog.title}}
                     </a></h1>
                     <p class="blog-desc">
                         {{@blog.description}}
@@ -48,6 +47,7 @@
                 </h4>
                 {{tag_cloud limit="all"}}
 
+                <!-- start 友情链接，可删 -->
                 <h4 class="side-hd">
                     <span class="inner">links</span>
                 </h4>
@@ -56,6 +56,7 @@
                     <li><a href="http://www.bilibili.tv/" target="_blank">Bilibili</a></li>
                     <li><a href="https://unsplash.com/" title="一个很棒的免费图片站" target="_blank">Unsplash</a></li>
                 </ul>
+                <!-- end -->
 
                 <div class="copyright">
                     <p class="copy">

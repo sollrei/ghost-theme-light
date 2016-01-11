@@ -222,6 +222,18 @@ pre {
   min-height: 100%;
   overflow: hidden;
 }
+.container {
+  position: relative;
+}
+.container:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 300px;
+  background: #fafcfc;
+}
 .m-aside {
   width: 300px;
   float: left;
@@ -259,6 +271,9 @@ pre {
   .m-aside {
     width: 23%;
   }
+  .container:after {
+    width: 23%;
+  }
   .m-main {
     width: 70%;
     border: 0;
@@ -276,6 +291,9 @@ pre {
   }
   .m-aside .side-hd,
   .m-aside ul {
+    display: none;
+  }
+  .container:after {
     display: none;
   }
 }

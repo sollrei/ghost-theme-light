@@ -49,6 +49,18 @@ pre
     min-height 100%
     overflow hidden
 
+.container
+    position relative
+    &:after
+        content ''
+        position absolute
+        left 0
+        top 0
+        height 100%
+        width 300px
+        background color-bg
+
+
 .m-aside
     width 300px
     float left
@@ -85,6 +97,9 @@ pre
     .m-aside
         width 23%
 
+    .container:after
+        width 23%
+
     .m-main
         width 70%
         border 0
@@ -95,12 +110,15 @@ pre
     .m-main
         float none
         width 100%
-    
+
     .m-aside
         text-align center
         .side-hd
         ul
             display none
+
+    .container:after
+        display none
 
 /* default */
 .m-aside
@@ -299,7 +317,7 @@ pre
     padding 10px
     border-left 6px solid color-bg
     font-family quicksand, sans-serif
-    
+
     .scroll-nav__heading
         text-transform uppercase
 
